@@ -4,6 +4,7 @@ import logging
 logging.basicConfig(filename='bot.log', level=logging.INFO)
 
 bot = TB.TeleBot(botconfig.token)
+logging.info("Бот стартовал")
 
 #приветствуем пользователя
 @bot.message_handler(commands=['start'])
@@ -19,8 +20,6 @@ def echo(message):
 bot.infinity_polling()
 
 def main():
-    
-    logging.info("Бот стартовал")
     hello_message()
     echo()
 
