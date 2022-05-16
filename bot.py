@@ -1,9 +1,11 @@
 import telebot as TB
 import botconfig
 import logging
+
 logging.basicConfig(filename='bot.log', level=logging.INFO)
 
 bot = TB.TeleBot(botconfig.token)
+
 logging.info("Бот стартовал")
 
 #приветствуем пользователя
@@ -17,11 +19,8 @@ def hello_message(message):
 def echo(message):
     bot.send_message(message.chat.id,message.text)
 
-bot.infinity_polling()
-
 def main():
-    hello_message()
-    echo()
+    bot.infinity_polling()
 
 if __name__ == "__main__":
     main()
