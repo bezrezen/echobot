@@ -1,12 +1,15 @@
 import telebot as TB
 import botconfig
+import logging
+logging.basicConfig(filename='bot.log', level=logging.INFO)
 
-#logging.basicConfig(filename='bot.log', level=logging.INFO)
+
 def main():
     bot = TB.TeleBot(botconfig.token)
-    with open(u'bot.log.','a') as f:
-        f.write ('Бот стартовал')
-        f.close()
+    logging.info("Бот стартовал")
+    #with open(u'bot.log.','a') as f:
+        #f.write ('Бот стартовал')
+        #f.close()
 #приветствуем пользователя
     @bot.message_handler(commands=['start'])
     def hello_message(message):
